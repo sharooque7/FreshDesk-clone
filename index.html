@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreshDesk-Ticket</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://kit.fontawesome.com/a9bda26c95.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/index.css"/>
+  </head>
+  <body onload="ListOfCountries()">
+   
+            <!-------------------------------------NavBar-------------------------->
+
+            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              
+                
+    -->
+
+    <div class='container-fluid'>
+        <div class="row">
+                <div class=" col-sm-4 col-md-2 col-lg-1 ">
+                    <div class="sidebar mx-auto">
+                        <div class="row">
+                            <div class="col-12">
+                                <a class="navbar-brand " href="#">
+                                    <img src="./images./logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-12 ">
+                                <a class="navbar-brand mt-2 px-4" href="#">
+                                    <i class="fas fa-tachometer-alt"></i>     
+                                </a>
+                                <a class="navbar-brand mt-2 px-4" href="#">
+                                    <i class="fas fa-ticket-alt"></i>    
+                                </a>
+                                <a class="navbar-brand mt-2 px-4" href="#">
+                                    <i class="fas fa-id-card"></i>    
+                                </a>
+                                <a class="navbar-brand mt-2 px-4" href="#">
+                                    <i class="fas fa-smog"></i>    
+                                </a>
+                                <a class="navbar-brand mt-2 px-4" href="#">
+                                    <i class="fas fa-smog"></i>    
+                                </a>
+                                <a class="navbar-brand mt-2 px-4" href="#">
+                                    <i class="fas fa-cog"></i>  
+                                </a>
+                                <a class="navbar-brand mt-2 px-4 fixed-bottom" href="#">
+                                    <i class="fas fa-braille"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            <div class="col-sm-8 col-md-10 col-lg-11 bg-light ">
+               <div class="row">
+                   <div class="col-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                      
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-align-left mr-2"></i>                        All Tickets
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <input class="inssearch" type="search" placeholder="search for a view"/>
+                                <a style ="margin-left: 0%;" class="dropdown-item" href="#">My Open and Pending Tickets</a>
+                                <a class="dropdown-item" href="#">My Overdue Tickets</a>
+                                <div class="dropdown-divider"><hr/></div>
+                                <a class="dropdown-item" href="#" selected>All tickes</a>
+                              </div>
+                            </li>
+                          </ul>
+                          <button class="btn btn-outline-dark btn-sm mr-3" >Get started (16%)</button>
+                          <div class="btn-group mr-3" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-plus-square"></i> New
+                            </button>
+                            <div class="dropdown-menu btn-group-sm" aria-labelledby="btnGroupDrop1">
+                             
+                              <a class="btn btn -outline-dark dropdown-item" href="#">New Ticket</a>
+                              <a class="btn btn -outline-dark  dropdown-item" href="#">New email</a>
+                              <a class="btn btn -outline-dark  dropdown-item" href="#">New contact</a>
+                              <a class="btn btn -outline-dark  dropdown-item" href="#">New company</a>
+    
+                            </div>
+                          </div>
+                          <form class="form-inline my-2 my-lg-0">
+                            <input type="text"  style="font-family: FontAwesome;" class="form-control mr-sm-2" placeholder="&#xf002 Search" size =5 aria-label="Search">
+                          </form>
+                          <a href="#"><i class="fas fa-bell mr-3"></i></a>
+                          <a href="#"><i class="fas fa-gift mr-3"></i></a>
+                          <a href="#"><i class="far fa-folder-open mr-3"></i></a>
+                          <a href="#"><i class="fab fa-medium-m mr-3"></i></a>
+                        </div>
+                      </nav>
+                   </div>
+                   <div class="col-12">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="btn-group mr-3 px-4" role="group">
+                                    <div class="form-check mr-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label text-muted" for="flexCheckDefault">
+                                        Sort by:
+                                        </label>
+                                    </div>
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Due By time <i class="fas fa-arrow-down mr-1"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="btn btn -outline-dark dropdown-item" href="#">Date created</a>
+                                    <a class="btn btn -outline-dark  dropdown-item" href="#">Last modified</a>
+                                    <a class="btn btn -outline-dark  dropdown-item" href="#">Priority</a>
+                                    <a class="btn btn -outline-dark  dropdown-item" href="#">Status</a>
+                                    </div>
+                                 </div>
+                            </div>
+                            <div class="col offset-2">
+                                Layout:
+                                <button id="btnGroupDrop1" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Card view   <i class="fas fa-arrow-down mr-1"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Card view</a>
+                                <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Table view</a>
+                                </div>
+                                <button class="btn btn-outline-dark btn-sm mr-2" size ="5"> <i class="fas fa-download"></i> Export</button>
+                                <span class="text-muted">1-7 of 7</span>
+                                <a class="btn btn-outline-dark btn-sm ">&lt;</a>
+                                <a class="btn btn-outline-dark btn-sm ">&gt;</a>
+                                <a class="btn btn-outline-dark btn-sm "><i class="far fa-file-archive"></i></a>
+                            </div>
+                        </div>
+                      </div>
+               </div>
+               <div class="row" >
+                 <div class="col-lg-8" id ="card" ></div>
+                  <div class="col-3 mt-3">
+                        <div class="scrollable col-12 sticky-top">
+                          <div class="card text-muted" >
+                            Agents
+                            <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4  mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               Any  <i class="fas fa-arrow-down mr-1"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Me</a>
+                            <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Unassigned</a>
+                        </div>
+                        <div class="card">
+                          Groups
+                          <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4  mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Any  <i class="fas fa-arrow-down mr-1"></i>
+                          </button>
+                          <div class="dropdown-menu btn-sm" aria-labelledby="btnGroupDrop1">
+                          <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">My group</a>
+                          <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Billing</a>
+                      </div>
+                      <div class="card text-muted">
+                        Resolution due by
+                        <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4 mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Any  <i class="fas fa-arrow-down mr-1"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Me</a>
+                        <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Unassigned</a>
+                    </div>
+                    <div class="card">
+                      First response due by
+                      <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4 mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Any  <i class="fas fa-arrow-down mr-1"></i>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                      <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Me</a>
+                      <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Unassigned</a>
+                  </div>
+                  <div class="card">
+                    Next response due by
+                    <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4 mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Any  <i class="fas fa-arrow-down mr-1"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Me</a>
+                    <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Unassigned</a>
+                </div>
+                <div class="card">
+                  Skill
+                  <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4 mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Any  <i class="fas fa-arrow-down mr-1"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                  <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Me</a>
+                  <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Unassigned</a>
+              </div>
+              <div class="card">
+                Status
+                <button id="btnGroupDrop1" aria-placeholder="Any" type="button" class="btn btn-outline-dark dropdown-toggle btn-sm mt-4 mr-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Any  <i class="fas fa-arrow-down mr-1"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="btn btn-sm  btn-outline-dark dropdown-item" href="#">Me</a>
+                <a class="btn btn -outline-dark  dropdown-item btn-sm " href="#">Unassigned</a>
+            </div>
+            <button class="btn btn-primary sticky-bottom mt-4">Apply</button>
+                        </div>
+                      </div>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script/index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
