@@ -1,10 +1,12 @@
 function a() {
   let Fresh_api = fetch(
-    "https://newaccount1619924845156.freshdesk.com/api/v2/tickets",
+    "https://newaccount1619866898804.freshdesk.com/api/v2/tickets#",
     {
+      method: "GET",
       headers: {
         Authorization:
-          "Basic Rm9nVEViUkZwMlpWb1k3YVdPTzk6Rm9nVEViUkZwMlpWb1k3YVdPTzk=",
+          "Basic " +
+          btoa("nYHqZv3liqJxvn4ExYxH" + ":" + "nYHqZv3liqJxvn4ExYxH"),
         "Content-Type": "application/json",
       },
     }
@@ -23,7 +25,7 @@ var Name = "M";
 
 function ListOfCountries() {
   let Data = a();
-  console.log(Data);
+  console.log(typeof Data);
   Data.then((res) => {
     res.forEach((element) => {
       console.log(element);

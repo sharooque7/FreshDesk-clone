@@ -1,57 +1,43 @@
 let Gresult = "";
-var form = document.getElementById("my-form");
-form.addEventListener("submit", function (e) {
-  var description = document.getElementById("description").value;
-  var subject = document.getElementById("subject").value;
-  var email = document.getElementById("contact").value;
-  // console.log(description, subject);
 
-  fetch("https://newaccount1619924845156.freshdesk.com/api/v2/tickets", {
-    method: "POST",
-    body: JSON.stringify({
-      description: description,
-      subject: subject,
-      email: email,
-      priority: 1,
-      status: 2,
-    }),
-    headers: {
-      Authorization:
-        "Basic Rm9nVEViUkZwMlpWb1k3YVdPTzk6Rm9nVEViUkZwMlpWb1k3YVdPTzk=",
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      Gresult = result;
-      createdTicked(result);
-      console.log(result);
-    })
-    .catch((err) => console.log(err));
-});
+async function getApiforcreate() {
+  console.log(description);
+  try {
+    let response = await fetch(
+      "https://newaccount1619866898804.freshdesk.com/api/v2/tickets#",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          description: description,
+          email: email,
+          priority: 1,
+          status: 2,
+          subject: subject,
+        }),
+        headers: {
+          Authorization: "Basic " + btoa("nYHqZv3liqJxvn4ExYxH" + ":" + "#"),
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    let result = await response.json();
+    //  console.log(result.subject);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
-function createdTicked(data) {
-  console.log(data);
-  var col = CreateElement("div", "col-12");
-  var card = CreateElement("div", "card mt-3");
-  var cardBody = CreateElement("div", "card-body");
-  var font = document.createElement("i", "fas fa-phone");
-  font.innerHTML = Gresult.subject;
-  var text = CreateElement("span", "text-muted");
-  text.innerHTML = "Created by User";
-  var font2 = document.createElement("i", "far fa-address-card");
-  font2.innerHTML = Gresult.subject;
-  var date = CreateElement("span", "text-muted");
-  date.innerHTML = Gresult.created_at;
-  var font3 = document.createElement("i", "fas fa-phone");
-  font3.innerHTML = Gresult.description_text;
-
-  cardBody.append(font, text, font2, date, font3);
-  card.append(cardBody);
-  col.append(card);
-  document.getElementById("createdNew").append(col);
+function createdTicked() {
+  alert("Ticket Created");
+  var Data = getApiforcreate();
+  Data.then((res) => {
+    document.getElementById("email").innerHTML = res.created_at;
+    document.getElementById("date").innerHTML = res.created_at;
+    document.getElementById("sub").innerHTML = res.subject;
+    document.getElementById("desc").innerHTML = res.description;
+  });
+  //window.location = "./TicketCreated";
 }
 
 function CreateElement(ElementName, ElementClass = "", ElementId = "") {
@@ -60,3 +46,28 @@ function CreateElement(ElementName, ElementClass = "", ElementId = "") {
   elem.setAttribute("id", ElementId);
   return elem;
 }
+
+var urlParams;
+(window.onpopstate = function () {
+  var match,
+    pl = /\+/g, // Regex for replacing addition symbol with a space
+    search = /([^&=]+)=?([^&]*)/g,
+    decode = function (s) {
+      return decodeURIComponent(s.replace(pl, " "));
+    },
+    query = window.location.search.substring(1);
+
+  urlParams = {};
+  while ((match = search.exec(query)))
+    urlParams[decode(match[1])] = decode(match[2]);
+})();
+
+console.log(urlParams);
+
+let description = urlParams.Descriptipn;
+let subject = urlParams.Subject;
+let email = urlParams.Contact;
+
+console.log(description);
+console.log(subject);
+console.log(email);
