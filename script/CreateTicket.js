@@ -64,7 +64,7 @@ var urlParams;
 
 console.log(urlParams);
 
-let description = urlParams.Descriptipn;
+let description = urlParams.Description;
 let subject = urlParams.Subject;
 let email = urlParams.Contact;
 
