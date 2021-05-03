@@ -29,7 +29,7 @@ function ListOfCountries() {
   Data.then((res) => {
     res.forEach((element) => {
       console.log(element);
-      var col = CreateElement("div", "col-lg-9");
+      var col = CreateElement("div", "col-lg-12");
       var card = CreateElement("div", "card mt-3");
       card.setAttribute("width", "18rem");
 
@@ -77,7 +77,7 @@ function ListOfCountries() {
       a2.setAttribute("data-toggle", "dropdown");
       a2.setAttribute("aria-haspopup", "true");
       a2.setAttribute("aria-expanded", "dropdown");
-      a2.innerHTML = "Low";
+      a2.innerHTML = "-- / --";
 
       var a_div2 = CreateElement("div", "dropdown-menu");
       a_div2.setAttribute("aria-labelledby", "btnGroupD");
@@ -99,7 +99,6 @@ function ListOfCountries() {
 
       var pp = CreateElement("div", "", "profileImage");
       pp.innerHTML = Name;
-      col.append(checkBox, div, div1, div2);
 
       card.append(checkBox, pp, div, div1, div2);
       col.append(card);
